@@ -2,9 +2,8 @@ variable "aws_region" {
   default = "ap-south-1"
 }
 
-
-variable "cidr_block" {
-  default = "10.10.0.0/16"
+variable "vpc_cidr" {
+  default = "10.10.0.0/16"  
 }
 
 variable "public-subnet-1-cidr" {
