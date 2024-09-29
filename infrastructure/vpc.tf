@@ -21,7 +21,7 @@ resource "aws_subnet" "public-subnet-1" {
   vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}a"
 
-  tags {
+  tags = {
     Name = "public-subnet-1"
   } 
 }
@@ -31,7 +31,7 @@ resource "aws_subnet" "public-subnet-2" {
   vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}b"
 
-  tags {
+  tags = {
     Name = "public-subnet-2"
   } 
 }
@@ -41,7 +41,7 @@ resource "aws_subnet" "public-subnet-3" {
   vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}c"
 
-  tags {
+  tags = {
     Name = "public-subnet-3"
   } 
 }
