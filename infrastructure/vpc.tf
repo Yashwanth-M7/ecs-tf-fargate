@@ -15,7 +15,7 @@ resource "aws_vpc" "production-vpc" {
   }
 }
 
-##PUBIC_SUBNET
+############## PUBIC_SUBNET ##############
 resource "aws_subnet" "public-subnet-1" {
   cidr_block        = var.public-subnet-1-cidr
   vpc_id            = aws_vpc.production-vpc.id
@@ -46,7 +46,7 @@ resource "aws_subnet" "public-subnet-3" {
   } 
 }
 
-##PRIVATE_SUBNET
+############## PRIVATE_SUBNET ##############
 resource "aws_subnet" "private-subnet-1" {
   cidr_block        = var.private-subnet-1-cidr
   vpc_id            = aws_vpc.production-vpc.id
