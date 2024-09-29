@@ -30,10 +30,18 @@ output "private-subnet-3-id" {
   value = aws_subnet.private-subnet-3.id
 }
 
-# output "private_subnets" {
-#   value = list(aws_subnet.private_subnet_1.id, aws_subnet.private_subnet_2.id, aws_subnet.private_subnet_3.id)
-# }
+output "private_subnets" {
+  value = [
+    aws_subnet.private-subnet-1.id, 
+    aws_subnet.private-subnet-2.id, 
+    aws_subnet.private-subnet-3.id
+  ]
+}
 
-# output "public_subnets" {
-#   value = list(aws_subnet.public_subnet_1.id, aws_subnet.public_subnet_2.id, aws_subnet.public_subnet_3.id)
-# }
+output "public_subnets" {
+  value = [
+    aws_subnet.public-subnet-1.id, 
+    aws_subnet.public-subnet-2.id, 
+    aws_subnet.public-subnet-3.id
+  ]
+}
