@@ -6,169 +6,169 @@ terraform {
   backend "s3" {}
 }
 
-resource "aws_vpc" "production_vpc" {
+resource "aws_vpc" "production-vpc" {
   cidr_block = var.vpc_cidr
   enable_dns_hostnames = true
 
   tags = {
-    Name = "production_vpc"
+    Name = "production-vpc"
   }
 }
 
 ############## PUBIC_SUBNET ##############
-resource "aws_subnet" "public_subnet_1" {
-  cidr_block        = var.public_subnet_1_cidr
-  vpc_id            = aws_vpc.production_vpc.id
+resource "aws_subnet" "public-subnet-1" {
+  cidr_block        = var.public-subnet-1-cidr
+  vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}a"
 
   tags = {
-    Name = "public_subnet_1"
+    Name = "public-subnet-1"
   } 
 }
 
-resource "aws_subnet" "public_subnet_2" {
-  cidr_block        = var.public_subnet_2_cidr
-  vpc_id            = aws_vpc.production_vpc.id
+resource "aws_subnet" "public-subnet-2" {
+  cidr_block        = var.public-subnet-2-cidr
+  vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}b"
 
   tags = {
-    Name = "public_subnet_2"
+    Name = "public-subnet-2"
   } 
 }
 
-resource "aws_subnet" "public_subnet_3" {
-  cidr_block        = var.public_subnet_3_cidr
-  vpc_id            = aws_vpc.production_vpc.id
+resource "aws_subnet" "public-subnet-3" {
+  cidr_block        = var.public-subnet-3-cidr
+  vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}c"
 
   tags = {
-    Name = "public_subnet_3"
+    Name = "public-subnet-3"
   } 
 }
 
 ############## PRIVATE_SUBNET ##############
-resource "aws_subnet" "private_subnet_1" {
-  cidr_block        = var.private_subnet_1_cidr
-  vpc_id            = aws_vpc.production_vpc.id
+resource "aws_subnet" "private-subnet-1" {
+  cidr_block        = var.private-subnet-1-cidr
+  vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}a"
 
   tags = {
-    Name = "private_subnet_1"
+    Name = "private-subnet-1"
   } 
 }
 
-resource "aws_subnet" "private_subnet_2" {
-  cidr_block        = var.private_subnet_2_cidr
-  vpc_id            = aws_vpc.production_vpc.id
+resource "aws_subnet" "private-subnet-2" {
+  cidr_block        = var.private-subnet-2-cidr
+  vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}b"
 
   tags = {
-    Name = "private_subnet_2"
+    Name = "private-subnet-2"
   } 
 }
 
-resource "aws_subnet" "private_subnet_3" {
-  cidr_block        = var.private_subnet_3_cidr
-  vpc_id            = aws_vpc.production_vpc.id
+resource "aws_subnet" "private-subnet-3" {
+  cidr_block        = var.private-subnet-3-cidr
+  vpc_id            = aws_vpc.production-vpc.id
   availability_zone ="${var.aws_region}c"
 
   tags = {
-    Name = "private_subnet_3"
+    Name = "private-subnet-3"
   } 
 }
 
 ##Public_Route_Tables############################
 
-resource "aws_route_table" "public_route_table" {
-  vpc_id = aws_vpc.production_vpc.id
+resource "aws_route_table" "public-route-table" {
+  vpc_id = aws_vpc.production-vpc.id
 
   tags = {
-    Name = "public_route_table"
+    Name = "public-route-table"
   }
 }
 
-resource "aws_route_table_association" "public_subnet_1_association" {
-  route_table_id = aws_route_table.public_route_table.id
-  subnet_id      = aws_subnet.public_subnet_1.id
+resource "aws_route_table_association" "public-subnet-1-association" {
+  route_table_id = aws_route_table.public-route-table.id
+  subnet_id      = aws_subnet.public-subnet-1.id
 }
 
-resource "aws_route_table_association" "public_subnet_2_association" {
-  route_table_id = aws_route_table.public_route_table.id
-  subnet_id      = aws_subnet.public_subnet_2.id
+resource "aws_route_table_association" "public-subnet-2-association" {
+  route_table_id = aws_route_table.public-route-table.id
+  subnet_id      = aws_subnet.public-subnet-2.id
 }
 
-resource "aws_route_table_association" "public_subnet_3_association" {
-  route_table_id = aws_route_table.public_route_table.id
-  subnet_id      = aws_subnet.public_subnet_3.id
+resource "aws_route_table_association" "public-subnet-3-association" {
+  route_table_id = aws_route_table.public-route-table.id
+  subnet_id      = aws_subnet.public-subnet-3.id
 }
 
 ##Private_Route_Tables##########################
 
-resource "aws_route_table" "private_route_table" {
-  vpc_id = aws_vpc.production_vpc.id
+resource "aws_route_table" "private-route-table" {
+  vpc_id = aws_vpc.production-vpc.id
 
   tags = {
-    Name = "private_route_table"
+    Name = "private-route-table"
   }
 }
 
-resource "aws_route_table_association" "private_subnet_1_association" {
-  route_table_id = aws_route_table.private_route_table.id
-  subnet_id = aws_subnet.private_subnet_1.id
+resource "aws_route_table_association" "private-subnet-1-association" {
+  route_table_id = aws_route_table.private-route-table.id
+  subnet_id = aws_subnet.private-subnet-1.id
 }
 
-resource "aws_route_table_association" "private_subnet_2_association" {
-  route_table_id = aws_route_table.private_route_table.id
-  subnet_id = aws_subnet.private_subnet_2.id
+resource "aws_route_table_association" "private-subnet-2-association" {
+  route_table_id = aws_route_table.private-route-table.id
+  subnet_id = aws_subnet.private-subnet-2.id
 }
 
-resource "aws_route_table_association" "private_subnet_3_association" {
-  route_table_id = aws_route_table.private_route_table.id
-  subnet_id = aws_subnet.private_subnet_3.id
+resource "aws_route_table_association" "private-subnet-3-association" {
+  route_table_id = aws_route_table.private-route-table.id
+  subnet_id = aws_subnet.private-subnet-3.id
 }
 
-##Elastic_IP
+##Elastic-IP
 
-resource "aws_eip" "elastic_ip_for_nat_gw" {
+resource "aws_eip" "elastic-ip-for-nat-gw" {
   domain                    = "vpc"
   associate_with_private_ip = "10.10.0.25"
 
   tags = {
-    Name = "Production_EIP"
+    Name = "Production-EIP"
   }
-  depends_on = [ aws_internet_gateway.production_igw ]
+  depends_on = [ aws_internet_gateway.production-igw ]
 }
 
-##Internet_GW
+##Internet-GW
 
-resource "aws_internet_gateway" "production_igw" {
-  vpc_id = aws_vpc.production_vpc.id
+resource "aws_internet_gateway" "production-igw" {
+  vpc_id = aws_vpc.production-vpc.id
   tags = {
-    Name = "Production_IGW"
+    Name = "Production-IGW"
   }
 }
 
-resource "aws_route" "int_gw_route" {
-  route_table_id = aws_route_table.public_route_table.id
-  gateway_id = aws_internet_gateway.production_igw.id
+resource "aws_route" "int-gw-route" {
+  route_table_id = aws_route_table.public-route-table.id
+  gateway_id = aws_internet_gateway.production-igw.id
   destination_cidr_block = "0.0.0.0/0"
 }
 
-##NAT_Gateway
+##NAT-Gateway
 
-resource "aws_nat_gateway" "production_nat_gw" {
-  allocation_id = aws_eip.elastic_ip_for_nat_gw.id
-  subnet_id = aws_subnet.public_subnet_1.id
+resource "aws_nat_gateway" "production-nat-gw" {
+  allocation_id = aws_eip.elastic-ip-for-nat-gw.id
+  subnet_id = aws_subnet.public-subnet-1.id
 
   tags = {
-    Name = "Production_NAT_GW"
+    Name = "Production-NAT-GW"
   }
-  depends_on = [ aws_eip.elastic_ip_for_nat_gw ]
+  depends_on = [ aws_eip.elastic-ip-for-nat-gw ]
 }
 
-resource "aws_route" "nat_gw_route" {
-  route_table_id = aws_route_table.private_route_table.id
-  nat_gateway_id = aws_nat_gateway.production_nat_gw.id
+resource "aws_route" "nat-gw-route" {
+  route_table_id = aws_route_table.private-route-table.id
+  nat_gateway_id = aws_nat_gateway.production-nat-gw.id
   destination_cidr_block = "0.0.0.0/0"
 }
 

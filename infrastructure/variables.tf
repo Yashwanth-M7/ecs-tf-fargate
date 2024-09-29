@@ -6,27 +6,27 @@ variable "vpc_cidr" {
   default = "10.10.0.0/16"  
 }
 
-variable "public_subnet_1_cidr" {
+variable "public-subnet-1-cidr" {
   description = "CIDR Block for Public Subnet 1"
 }
 
-variable "public_subnet_2_cidr" {
+variable "public-subnet-2-cidr" {
   description = "CIDR Block for Public Subnet 2"
 }
 
-variable "public_subnet_3_cidr" {
+variable "public-subnet-3-cidr" {
   description = "CIDR Block for Public Subnet 3"
 }
 
-variable "private_subnet_1_cidr" {
+variable "private-subnet-1-cidr" {
   description = "CIDR Block for Private Subnet 1"
 }
 
-variable "private_subnet_2_cidr" {
+variable "private-subnet-2-cidr" {
   description = "CIDR Block for Private Subnet 2"
 }
 
-variable "private_subnet_3_cidr" {
+variable "private-subnet-3-cidr" {
   description = "CIDR Block for Private Subnet 3"
 }
 
