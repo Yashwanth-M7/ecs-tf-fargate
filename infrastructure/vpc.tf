@@ -139,7 +139,7 @@ resource "aws_internet_gateway" "production-igw" {
 ##Elastic-IP
 
 resource "aws_eip" "elastic-ip-for-nat-gw" {
-  vpc = true
+  domain                    = "vpc"
   associate_with_private_ip = "10.10.0.25"
 
   tags = {
