@@ -19,12 +19,12 @@ output "ecs_cluster_role_name" {
 }
 
 output "ecs_cluster_role_arn" {
-  value = aws_iam_role.ecs-cluster-role.arn
+  value = aws_iam_role.ecs-cluster-role
 }
 
-output "ecs_domain_name" {
-  value = var.ecs_domain_name
-}
+#output "ecs_domain_name" {
+#  value = var.ecs_domain_name
+#}
 
 output "ecs_public_subnets" {
   value = data.terraform_remote_state.infrastructure.outputs.public_subnets
