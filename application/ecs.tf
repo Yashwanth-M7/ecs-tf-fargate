@@ -98,7 +98,7 @@ resource "aws_iam_role_policy" "ecs-cluster-policy" {
           "ec2:*",
           "ecs:*",
           "ecr:*",
-          "elasticloadbalancing:*"
+          "elasticloadbalancing:*",
           "s3:*",
           "rds:*",
           "cloudwatch:*",
