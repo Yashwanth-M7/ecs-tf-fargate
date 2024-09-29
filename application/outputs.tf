@@ -11,15 +11,15 @@ output "ecs_alb_listener_arn" {
 }
 
 output "ecs-cluster-name" {
-  value = aws_ecs_cluster.production-fargate-cluster.name
+  value = aws_ecs_cluster.prod-ecs-cluster.name
 }
 
 output "ecs_cluster_role_name" {
-  value = aws_iam_role.ecs_cluster_role.name
+  value = aws_iam_role.ecs-cluster-role.name
 }
 
 output "ecs_cluster_role_arn" {
-  value = aws_iam_role.ecs_cluster_role.arn
+  value = aws_iam_role.ecs-cluster-role.arn
 }
 
 output "ecs_domain_name" {
