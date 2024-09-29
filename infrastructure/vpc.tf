@@ -10,7 +10,7 @@ resource "aws_vpc" "production-vpc" {
   cidr_block = var.cidr_block
   enable_dns_hostnames = true
 
-  tags {
+  tags = {
     Name = "production-vpc"
   }
 }
